@@ -27,6 +27,14 @@ function RootComponent() {
         >
           About
         </Link>
+        <Link
+          to="/profile"
+          activeProps={{
+            className: "font-bold",
+          }}
+        >
+          Profile
+        </Link>
       </div>
       <hr />
       <Outlet />
