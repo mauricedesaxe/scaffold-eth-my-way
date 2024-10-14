@@ -21,16 +21,16 @@ function RootComponent() {
             Home
           </Link>{" "}
           <Link
-            to="/about"
+            to="/faucet"
             activeProps={{
               className: "font-bold",
             }}
           >
-            About
+            Faucet
           </Link>
         </div>
         <div className="flex justify-end gap-4">
-          <w3m-button />
+          <w3m-button balance="hide" />
         </div>
       </div>
       <hr />

@@ -3,13 +3,12 @@ import ReactDOM from "react-dom/client";
 import { RouterProvider, createRouter } from "@tanstack/react-router";
 import { routeTree } from "./routeTree.gen";
 import { WagmiProvider } from "wagmi";
-import { config } from "../wagmi.config";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { createAppKit } from "@reown/appkit/react";
 import { mainnet, localhost } from "@reown/appkit/networks";
 import { WagmiAdapter } from "@reown/appkit-adapter-wagmi";
 
-const queryClient = new QueryClient();
+export const queryClient = new QueryClient();
 
 const projectId = "f980d1e8ac5f60d237a134a726ee17cd";
 
@@ -41,11 +40,11 @@ const router = createRouter({
   defaultPreload: "intent",
   Wrap: function WrapComponent({ children }) {
     return (
-      <WagmiProvider config={wagmiAdapter.wagmiConfig}>
-        <QueryClientProvider client={queryClient}>
+      <QueryClientProvider client={queryClient}>
+        <WagmiProvider config={wagmiAdapter.wagmiConfig}>
           {children}
-        </QueryClientProvider>
-      </WagmiProvider>
+        </WagmiProvider>
+      </QueryClientProvider>
     );
   },
 });
