@@ -34,7 +34,7 @@ function RootComponent() {
         </div>
       </div>
       <hr />
-      <div className="max-w-screen-xl mx-auto py-4 rounded-xl bg-slate-100 my-4 px-4 border border-dashed border-slate-300 text-slate-800">
+      <div className="max-w-screen-xl mx-auto py-4 rounded-xl bg-slate-100 dark:bg-slate-900 my-4 px-4 border border-dashed border-slate-300 text-slate-800 dark:text-slate-200">
         <Outlet />
       </div>
       <TanStackRouterDevtools position="bottom-right" />

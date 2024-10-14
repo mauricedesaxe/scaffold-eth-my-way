@@ -46,19 +46,30 @@ function Counter() {
   }
 
   return (
-    <div>
-      <p>Counter: {number?.toString()}</p>
-      <button
-        onClick={() =>
-          increment({
-            address: deployments.Counter as `0x${string}`,
-            abi: CounterABI,
-            functionName: "increment",
-          })
-        }
-      >
-        Increment
-      </button>
-    </div>
+    <>
+      <div className="mx-auto py-8">
+        <h1 className="text-4xl font-bold text-center">Counter</h1>
+        <p className="mt-6 text-2xl text-center">
+          The counter is one of those "hello world" type projects that you see
+          all over the place. This one is a bit different though, because it's
+          deployed on the blockchain.
+        </p>
+      </div>
+      <div className="flex flex-col items-center space-y-4 p-8 bg-gradient-to-r from-purple-400 to-pink-500 rounded-lg shadow-lg">
+        <p className="text-4xl font-bold text-white">{number?.toString()}</p>
+        <button
+          onClick={() =>
+            increment({
+              address: deployments.Counter as `0x${string}`,
+              abi: CounterABI,
+              functionName: "increment",
+            })
+          }
+          className="px-6 py-2 bg-white text-purple-600 font-semibold rounded-full hover:bg-opacity-90 transition duration-300 ease-in-out transform hover:scale-105 focus:outline-none focus:ring-2 focus:ring-purple-400 focus:ring-opacity-50"
+        >
+          +1
+        </button>
+      </div>
+    </>
   );
 }
