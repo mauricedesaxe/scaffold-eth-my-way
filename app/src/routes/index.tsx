@@ -28,7 +28,7 @@ function Counter() {
     functionName: "number",
   });
 
-  const { writeContract: increment } = useWriteContract();
+  const { writeContract } = useWriteContract();
 
   if (isLoading) {
     return (
@@ -59,7 +59,7 @@ function Counter() {
         <p className="text-4xl font-bold text-white">{number?.toString()}</p>
         <button
           onClick={() =>
-            increment({
+            writeContract({
               address: deployments.Counter as `0x${string}`,
               abi: CounterABI,
               functionName: "increment",
