@@ -6,7 +6,7 @@ import { WagmiProvider } from "wagmi";
 import { config } from "../wagmi.config";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { createAppKit } from "@reown/appkit/react";
-import { mainnet } from "@reown/appkit/networks";
+import { mainnet, localhost } from "@reown/appkit/networks";
 import { WagmiAdapter } from "@reown/appkit-adapter-wagmi";
 
 const queryClient = new QueryClient();
@@ -21,14 +21,14 @@ const metadata = {
 };
 
 const wagmiAdapter = new WagmiAdapter({
-  networks: [mainnet],
+  networks: [mainnet, localhost],
   projectId,
   ssr: true,
 });
 
 createAppKit({
   adapters: [wagmiAdapter],
-  networks: [mainnet],
+  networks: [mainnet, localhost],
   projectId,
   metadata,
   features: {
