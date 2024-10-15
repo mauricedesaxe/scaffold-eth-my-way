@@ -1,5 +1,8 @@
-local_deploy_and_export:
-	./local_deploy_and_export.sh
+local_deploy:
+	./local_deploy.sh
+
+deploy:
+	./deploy.sh
 
 chain:
 	cd protocol && anvil --chain-id 1337
