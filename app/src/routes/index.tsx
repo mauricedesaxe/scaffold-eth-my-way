@@ -22,6 +22,7 @@ function Counter() {
   const {
     data: number,
     isError,
+    error,
     isLoading,
     queryKey,
   } = useReadContract({
@@ -48,7 +49,9 @@ function Counter() {
   if (isError) {
     return (
       <div className="flex justify-center items-center py-6">
-        <p className="text-red-500">Error fetching counter value</p>
+        <p className="text-red-500">
+          Error fetching counter value: {error.message}
+        </p>
       </div>
     );
   }
