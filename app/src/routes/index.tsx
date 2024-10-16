@@ -1,8 +1,8 @@
 import * as React from "react";
 import { createFileRoute } from "@tanstack/react-router";
 import { useReadContract, useWriteContract } from "wagmi";
-import CounterABI from "../contracts/Counter.abi.json";
-import deployments from "../contracts/deployments.json";
+import CounterABI from "../contracts/local/Counter.abi.json";
+import deployments from "../contracts/local/deployments.json";
 import Spinner from "../components/Spinner";
 import { queryClient } from "../main";
 
