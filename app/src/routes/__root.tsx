@@ -19,14 +19,6 @@ function RootComponent() {
             activeOptions={{ exact: true }}
           >
             Home
-          </Link>{" "}
-          <Link
-            to="/faucet"
-            activeProps={{
-              className: "font-bold",
-            }}
-          >
-            Faucet
           </Link>
         </div>
         <div className="flex justify-end gap-4">

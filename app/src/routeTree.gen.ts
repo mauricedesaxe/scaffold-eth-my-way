@@ -11,15 +11,9 @@
 // Import Routes
 
 import { Route as rootRoute } from './routes/__root'
-import { Route as FaucetImport } from './routes/faucet'
 import { Route as IndexImport } from './routes/index'
 
 // Create/Update Routes
-
-const FaucetRoute = FaucetImport.update({
-  path: '/faucet',
-  getParentRoute: () => rootRoute,
-} as any)
 
 const IndexRoute = IndexImport.update({
   path: '/',
@@ -37,13 +31,6 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof IndexImport
       parentRoute: typeof rootRoute
     }
-    '/faucet': {
-      id: '/faucet'
-      path: '/faucet'
-      fullPath: '/faucet'
-      preLoaderRoute: typeof FaucetImport
-      parentRoute: typeof rootRoute
-    }
   }
 }
 
@@ -51,37 +38,32 @@ declare module '@tanstack/react-router' {
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
-  '/faucet': typeof FaucetRoute
 }
 
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
-  '/faucet': typeof FaucetRoute
 }
 
 export interface FileRoutesById {
   __root__: typeof rootRoute
   '/': typeof IndexRoute
-  '/faucet': typeof FaucetRoute
 }
 
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/' | '/faucet'
+  fullPaths: '/'
   fileRoutesByTo: FileRoutesByTo
-  to: '/' | '/faucet'
-  id: '__root__' | '/' | '/faucet'
+  to: '/'
+  id: '__root__' | '/'
   fileRoutesById: FileRoutesById
 }
 
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
-  FaucetRoute: typeof FaucetRoute
 }
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
-  FaucetRoute: FaucetRoute,
 }
 
 export const routeTree = rootRoute
@@ -96,15 +78,11 @@ export const routeTree = rootRoute
     "__root__": {
       "filePath": "__root.tsx",
       "children": [
-        "/",
-        "/faucet"
+        "/"
       ]
     },
     "/": {
       "filePath": "index.tsx"
-    },
-    "/faucet": {
-      "filePath": "faucet.tsx"
     }
   }
 }
